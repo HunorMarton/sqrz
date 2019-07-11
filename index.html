@@ -1,0 +1,124 @@
+<html>
+  <head>
+      <title>SQRZ</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+      <script src="./data.js"></script>
+      <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto Mono', monospace;
+      }
+      header,
+      footer {
+        padding: 10px;
+        background-color: black;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      button {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        outline: none;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+      }
+      footer {
+        font-size: 0.7em;
+      }
+      #back {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: none;
+        background-color: darkgray;
+        color: white;
+        font-size: 1em;
+      }
+      .layout {
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto 1fr auto;
+        box-sizing: border-box;
+        height: 100vh;
+      }
+      main {
+        padding: 20px;
+      }
+      #clubs,
+      #details {
+        grid-row: 2;
+        grid-column: 1;
+      }
+      .club {
+        display: inline-flex;
+        border: 1px solid gray;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        user-select: none;
+        margin: 10px;
+        height: 100px;
+        width: 100px;
+      }
+      #details {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background-color: lightgray;
+        flex-direction: column;
+      }
+    </style>
+
+    <div class="layout">
+      <header>
+        Today in Ibiza
+      </header>
+      <main id="clubs"></main>
+      <div id="details">
+        <button id="back">Back</button>
+        <h2 id="club"></h2>
+        <div>presents</div>
+        <h2 id="event"></h2>
+        <div id="lineup"></div>
+      </div>
+      <footer>
+        <div>© SQRZ Enterprises Inc</div>
+        <div>by Will Villa</div>
+        <div>info@sqrz.com</div>
+        <div>1250 Broadway, 10001 NY, NY</div>
+      </footer>
+    </div>
+
+    <script>
+      window.onload = function () {
+        const clubs = document.getElementById('clubs')
+        const today = new Date().toISOString().slice(0, 10)
+        data[today].forEach(club => {
+          const clubDOM = document.createElement('div')
+          clubDOM.className = 'club'
+          clubDOM.innerHTML = `<h2>${club.name}<h2>`
+          clubDOM.addEventListener('click', () => {
+            document.getElementById('club').innerText = club.name
+            document.getElementById('event').innerText = club.event
+            document.getElementById('lineup').innerText = club.lineup
+            document.getElementById('clubs').style.display = 'none'
+            document.getElementById('details').style.display = 'flex'
+          })
+          clubs.appendChild(clubDOM)
+        })
+
+        document.getElementById('back').addEventListener('click', () => {
+          document.getElementById('clubs').style.display = 'block'
+          document.getElementById('details').style.display = 'none'
+        })
+
+      };
+    </script>
+  </body>
+</html>
