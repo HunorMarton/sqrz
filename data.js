@@ -55,12 +55,11 @@ const data = {
       event: "we love black music",
       lineup: "TBA"
     }
-  ]
-}
+  ],
 
 
 
-"2019-07-16": [
+  "2019-07-16": [
     {
       name: "Pacha",
       event: "Latino Gang",
@@ -131,11 +130,10 @@ const data = {
       event: "Guardians of EK",
       lineup: "TBA"
     }
-  ]
-}
+  ],
 
 
-"2019-07-17": [
+  "2019-07-17": [
     {
       name: "Pacha",
       event: "Flower Power",
@@ -206,11 +204,10 @@ const data = {
       event: "Manycome",
       lineup: "Amber, Juliana Yamasaki, Tania Moon, Taia"
     }
-  ]
-}
+  ],
 
 
-"2019-07-18": [
+  "2019-07-18": [
     {
       name: "Pacha",
       event: "Music On",
@@ -276,11 +273,10 @@ const data = {
       event: "Shine",
       lineup: "Paul Van Dyk"
     },
-  ]
-}
+  ],
 
 
-"2019-07-19": [
+  "2019-07-19": [
     {
       name: "Pacha",
       event: "Transmoderna",
@@ -356,11 +352,9 @@ const data = {
       event: "ClockWork Orange",
       lineup: "TBA"
     }
-  ]
-}
+  ],
 
-
-"2019-07-20": [
+  "2019-07-20": [
     {
       name: "Privilege",
       event: "Brutal",
@@ -436,11 +430,10 @@ const data = {
       event: "Senssual Ibiza",
       lineup: "TBA"
     }
-  ]
-}
+  ],
 
 
-"2019-07-21": [
+  "2019-07-21": [
     {
       name: "Pacha",
       event: "Solomun",
