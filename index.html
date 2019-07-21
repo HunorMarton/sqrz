@@ -108,7 +108,11 @@
     <script>
       window.onload = function () {
         const clubs = document.getElementById('clubs')
-        const today = new Date().toISOString().slice(0, 10)
+
+        const d = new Date()
+        d.setHours(d.getHours() - 6);
+        const today = d.toISOString().slice(0, 10)
+
         data[today].forEach(club => {
           const clubDOM = document.createElement('div')
           clubDOM.className = 'club'
