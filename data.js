@@ -1,5 +1,5 @@
  const data = {
-  "2019-07-22": [
+  "2019-07-21": [
       name: "Pacha",
       event: "Masquerade",
       lineup: "Claptone, Todd Terry, Nora En Pure, Weiss"
@@ -54,7 +54,7 @@
       event: "Electico romantico",
       lineup: "Bob Sinclair, Kolombo, Mark Ursa ,Fredelux"
     ]
-
+}
 
 "2019-07-23": [
       name: "Privilege",
