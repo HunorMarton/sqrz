@@ -48,32 +48,23 @@
         height: 100vh;
       }
       main {
-        padding: 5vw;
+        padding: 20px;
       }
       #clubs,
       #details {
         grid-row: 2;
         grid-column: 1;
       }
-      #clubs {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-column-gap: 5vw;
-        grid-row-gap: 5vw;
-      }
       .club {
         display: inline-flex;
         border: 1px solid gray;
-        box-sizing: border-box;
-        align-content: center;
-        justify-content: center;
         align-items: center;
-        justify-items: center;
-        text-align: center;
+        justify-content: center;
         cursor: pointer;
         user-select: none;
-        width: 42vw;
-        height: 42vw;
+        margin: 10px;
+        height: 100px;
+        width: 100px;
       }
       #details {
         display: none;
@@ -81,7 +72,6 @@
         justify-content: center;
         background-color: lightgray;
         flex-direction: column;
-        padding: 2em;
       }
     </style>
 
@@ -108,11 +98,7 @@
     <script>
       window.onload = function () {
         const clubs = document.getElementById('clubs')
-
-        const d = new Date()
-        d.setHours(d.getHours() - 6);
-        const today = d.toISOString().slice(0, 10)
-
+        const today = new Date().toISOString().slice(0, 10)
         data[today].forEach(club => {
           const clubDOM = document.createElement('div')
           clubDOM.className = 'club'
@@ -126,12 +112,10 @@
           })
           clubs.appendChild(clubDOM)
         })
-
         document.getElementById('back').addEventListener('click', () => {
-          document.getElementById('clubs').style.display = 'grid'
+          document.getElementById('clubs').style.display = 'block'
           document.getElementById('details').style.display = 'none'
         })
-
       };
     </script>
   </body>
