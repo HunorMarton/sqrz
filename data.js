@@ -1,4 +1,4 @@
- const data = {
+data = {
   "2019-07-24": [
    {
       name: "Pacha",
