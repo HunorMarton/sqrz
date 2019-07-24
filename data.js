@@ -1,4 +1,4 @@
-data = {
+const data = {
   "2019-07-24": [
    {
       name: "Pacha",
@@ -16,5 +16,5 @@ data = {
       lineup: "Angel Linde, Lunnas, Mr Doris, Willie Graff"
                  }
                 ]
-
+}
 
