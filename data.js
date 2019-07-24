@@ -22,7 +22,7 @@ event: "Christmas party",
 
 lineup: "Another Famous DJ"
 
-}
+},
 
 ]
 
