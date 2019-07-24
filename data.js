@@ -1,5 +1,6 @@
  const data = {
-  "2019-07-24": [{
+  "2019-07-24": [
+   {
       name: "Pacha",
       event: "Masquerade",
       lineup: "Claptone, Todd Terry, Nora En Pure, Weiss"
