@@ -2,7 +2,7 @@
 const data = {
   "2019-07-27": [
     {
-      name: "KitKat",
+      name: "Kitkat",
       event: "Gegen",
       lineup: "Famous DJ"
     },
