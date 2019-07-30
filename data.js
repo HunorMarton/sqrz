@@ -1,6 +1,6 @@
 
 const data = {
-  "2019-07-30": [
+  "2019-07-31": [
     {
       name: "KitKat",
       event: "Gegen",
