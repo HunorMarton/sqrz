@@ -1,4 +1,7 @@
- "2019-08-01": [
+
+const data = {
+
+"2019-08-01": [
     {
       name: "Pacha",
       event: "Music On",
