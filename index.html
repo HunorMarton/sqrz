@@ -1,295 +1,239 @@
-
 <html>
+  <head>
+    <title>SQRZ</title>
 
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
 
-<head>
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="-1" />
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 11:00:00 GMT" />
+    <meta http-equiv="pragma" content="no-cache" />
 
-<title>SQRZ</title>
+    <script type="text/javascript">
+      document.write(
+        "<scr" +
+          'ipt src="./data.js?v=' +
+          Math.round(Math.random() * 1000) +
+          '" type="text/javascript"></scr' +
+          "ipt>"
+      );
+    </script>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<meta http-equiv="cache-control" content="max-age=0">
-<meta http-equiv="cache-control" content="no-cache">
-<meta http-equiv="expires" content="-1">
-<meta http-equiv="expires" content="Tue, 01 Jan 1980 11:00:00 GMT">
-<meta http-equiv="pragma" content="no-cache">
-  
-<script type="text/javascript">
-document.write('<scr'+'ipt src="./data.js?v='+(Math.round(Math.random()*1000))+'" type="text/javascript"></scr'+'ipt>');
-</script>
+  <body>
+    <style>
+      body {
+        margin: 0;
 
-  
+        padding: 0;
 
-<link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+        font-family: "Roboto Mono", monospace;
+      }
 
-</head>
+      header,
+      footer {
+        padding: 10px;
 
-<body>
+        background-color: black;
 
-<style>
+        color: white;
 
-body {
+        display: flex;
 
-margin: 0;
+        align-items: center;
 
-padding: 0;
+        justify-content: center;
 
-font-family: 'Roboto Mono', monospace;
+        flex-direction: column;
+      }
 
-}
+      button {
+        -webkit-appearance: none;
 
-header,
+        -moz-appearance: none;
 
-footer {
+        outline: none;
 
-padding: 10px;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      }
 
-background-color: black;
+      footer {
+        font-size: 0.7em;
+      }
 
-color: white;
+      #back {
+        width: 50px;
 
-display: flex;
+        height: 50px;
 
-align-items: center;
+        border-radius: 50%;
 
-justify-content: center;
+        border: none;
 
-flex-direction: column;
+        background-color: darkgray;
 
-}
+        color: white;
 
-button {
+        font-size: 1em;
+      }
 
--webkit-appearance: none;
+      .layout {
+        display: grid;
 
--moz-appearance: none;
+        grid-template-columns: auto;
 
-outline: none;
+        grid-template-rows: auto 1fr auto;
 
--webkit-tap-highlight-color: rgba(0,0,0,0);
+        box-sizing: border-box;
 
-}
+        height: 100vh;
+      }
 
-footer {
+      main {
+        padding: 5vw;
+      }
 
-font-size: 0.7em;
+      #clubs,
+      #details {
+        grid-row: 2;
 
-}
+        grid-column: 1;
+      }
 
-#back {
+      #clubs {
+        display: grid;
 
-width: 50px;
+        grid-template-columns: 1fr 1fr;
 
-height: 50px;
+        grid-column-gap: 5vw;
 
-border-radius: 50%;
+        grid-row-gap: 5vw;
+      }
 
-border: none;
+      .club {
+        display: inline-flex;
 
-background-color: darkgray;
+        border: 1px solid gray;
 
-color: white;
+        box-sizing: border-box;
 
-font-size: 1em;
+        align-content: center;
 
-}
+        justify-content: center;
 
-.layout {
+        align-items: center;
 
-display: grid;
+        justify-items: center;
 
-grid-template-columns: auto;
+        text-align: center;
 
-grid-template-rows: auto 1fr auto;
+        cursor: pointer;
 
-box-sizing: border-box;
+        user-select: none;
 
-height: 100vh;
+        width: 42vw;
 
-}
+        height: 42vw;
+      }
 
-main {
+      #details {
+        display: none;
 
-padding: 5vw;
+        align-items: center;
 
-}
+        justify-content: center;
 
-#clubs,
+        background-color: lightgray;
 
-#details {
+        flex-direction: column;
 
-grid-row: 2;
+        padding: 2em;
+      }
+    </style>
 
-grid-column: 1;
+    <div class="layout">
+      <header>
+        Today in Ibiza
+      </header>
 
-}
+      <main id="clubs"></main>
 
-#clubs {
+      <div id="details">
+        <button id="back">Back</button>
 
-display: grid;
+        <h2 id="club"></h2>
 
-grid-template-columns: 1fr 1fr;
+        <div>presents</div>
 
-grid-column-gap: 5vw;
+        <h2 id="event"></h2>
 
-grid-row-gap: 5vw;
+        <div id="lineup"></div>
+      </div>
 
-}
+      <footer>
+        <div>© SQRZ Enterprises Inc</div>
 
-.club {
+        <div>by Will Villa</div>
 
-display: inline-flex;
+        <div>info@sqrz.com</div>
 
-border: 1px solid gray;
+        <div>1250 Broadway, 10001 NY, NY</div>
+      </footer>
+    </div>
 
-box-sizing: border-box;
+    <script>
+      window.onload = function() {
+        fetch("./data.json")
+          .then(function(response) {
+            return response.json();
+          })
+          .then(function(data) {
+            const clubs = document.getElementById("clubs");
 
-align-content: center;
+            const d = new Date();
 
-justify-content: center;
+            d.setHours(d.getHours() - 6);
 
-align-items: center;
+            const today = d.toISOString().slice(0, 10);
 
-justify-items: center;
+            data[today].forEach(club => {
+              const clubDOM = document.createElement("div");
 
-text-align: center;
+              clubDOM.className = "club";
 
-cursor: pointer;
+              clubDOM.innerHTML = `<h2>${club.name}<h2>`;
 
-user-select: none;
+              clubDOM.addEventListener("click", () => {
+                document.getElementById("club").innerText = club.name;
 
-width: 42vw;
+                document.getElementById("event").innerText = club.event;
 
-height: 42vw;
+                document.getElementById("lineup").innerText = club.lineup;
 
-}
+                document.getElementById("clubs").style.display = "none";
 
-#details {
+                document.getElementById("details").style.display = "flex";
+              });
 
-display: none;
+              clubs.appendChild(clubDOM);
+            });
 
-align-items: center;
+            document.getElementById("back").addEventListener("click", () => {
+              document.getElementById("clubs").style.display = "grid";
 
-justify-content: center;
-
-background-color: lightgray;
-
-flex-direction: column;
-
-padding: 2em;
-
-}
-
-</style>
-
-
-
-<div class="layout">
-
-<header>
-
-Today in Ibiza
-
-</header>
-
-<main id="clubs"></main>
-
-<div id="details">
-
-<button id="back">Back</button>
-
-<h2 id="club"></h2>
-
-<div>presents</div>
-
-<h2 id="event"></h2>
-
-<div id="lineup"></div>
-
-</div>
-
-<footer>
-
-<div>© SQRZ Enterprises Inc</div>
-
-<div>by Will Villa</div>
-
-<div>info@sqrz.com</div>
-
-<div>1250 Broadway, 10001 NY, NY</div>
-
-</footer>
-
-</div>
-
-
-
-<script>
-
-window.onload = function () {
-  
-fetch('./data.json')
-.then(function(response) {
-  return response.json();
-})
-.then(function(myJson) {
-  console.log(JSON.stringify(myJson));
-});
-
-const clubs = document.getElementById('clubs')
-
-
-
-const d = new Date()
-
-d.setHours(d.getHours() - 6);
-
-const today = d.toISOString().slice(0, 10)
-
-
-
-data[today].forEach(club => {
-
-const clubDOM = document.createElement('div')
-
-clubDOM.className = 'club'
-
-clubDOM.innerHTML = `<h2>${club.name}<h2>`
-
-clubDOM.addEventListener('click', () => {
-
-document.getElementById('club').innerText = club.name
-
-document.getElementById('event').innerText = club.event
-
-document.getElementById('lineup').innerText = club.lineup
-
-document.getElementById('clubs').style.display = 'none'
-
-document.getElementById('details').style.display = 'flex'
-
-})
-
-clubs.appendChild(clubDOM)
-
-})
-
-
-
-document.getElementById('back').addEventListener('click', () => {
-
-document.getElementById('clubs').style.display = 'grid'
-
-document.getElementById('details').style.display = 'none'
-
-})
-
-
-
-};
-
-</script>
-
-</body>
-
+              document.getElementById("details").style.display = "none";
+            });
+          });
+      };
+    </script>
+  </body>
 </html>
