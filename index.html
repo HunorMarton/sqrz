@@ -227,6 +227,14 @@ Today in Ibiza
 <script>
 
 window.onload = function () {
+  
+fetch('./data.json')
+.then(function(response) {
+  return response.json();
+})
+.then(function(myJson) {
+  console.log(JSON.stringify(myJson));
+});
 
 const clubs = document.getElementById('clubs')
 
