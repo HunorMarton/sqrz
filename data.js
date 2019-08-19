@@ -1,8 +1,8 @@
 const data = {
     "2019-08-19" : [
         {
-            name : "Pachaa",
-            event : "Pachaa",
+            name : "Pacha",
+            event : "Pacha",
             lineup : "DJ Pacha"
         }
     ]
