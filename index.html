@@ -13,16 +13,6 @@
     <meta http-equiv="expires" content="Tue, 01 Jan 1980 11:00:00 GMT" />
     <meta http-equiv="pragma" content="no-cache" />
 
-    <script type="text/javascript">
-      document.write(
-        "<scr" +
-          'ipt src="./data.js?v=' +
-          Math.round(Math.random() * 1000) +
-          '" type="text/javascript"></scr' +
-          "ipt>"
-      );
-    </script>
-
     <link
       href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap"
       rel="stylesheet"
@@ -197,6 +187,7 @@
             return response.json();
           })
           .then(function(data) {
+            console.log('DATA', data)
             const clubs = document.getElementById("clubs");
 
             const d = new Date();
