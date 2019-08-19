@@ -4,6 +4,18 @@
             "name": "Pacha",
             "event": "Pacha",
             "lineup": "DJ Pacha"
+        },
+        {
+            "name": "Pacha 2",
+            "event": "Pacha 2",
+            "lineup": "DJ Pacha 2"
+        }
+    ],
+    "2019-08-20": [
+        {
+            "name": "Pacha",
+            "event": "Pacha",
+            "lineup": "DJ Pacha"
         }
     ]
 }
